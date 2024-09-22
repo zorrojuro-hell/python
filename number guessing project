@@ -1,0 +1,67 @@
+from random import randint
+
+easy_level = 5
+hard_level = 3
+
+# check the user guess against actual number
+
+def check_answer(user_guess , actual_answer , turns):
+    if user_guess < actual_answer:
+        print("Too Low")
+        return turns -1
+    elif user_guess > actual_answer:
+        print("Too High")
+        return turns -1
+    else:
+        print(f"you got it , the answer{actual_answer}")
+        
+def end_game():
+    if set_difficulty != easy_level and hard_level:
+        return exit()
+
+
+# function to set difficulty 
+def set_difficulty():
+    level = input("Choose difficulty type 'easy' or 'hard' ." )
+    if level =="easy":
+        return easy_level
+    elif level == "hard":
+        return hard_level
+    else:
+        print("you didn't mention right choice")
+        end_game()
+
+
+def Game():
+    # choosing a random number between 1 to 10
+
+    print('Welcome to the Number Guessing Game !')
+    print("I am thinking of a number between 1 to 10.")
+
+    answer = randint(1,10)
+
+    turns = set_difficulty()
+
+    guess = 0
+    while guess != answer:
+
+        # repeat guessing  function if they got wrong
+        
+        
+        
+        # let the user guess a number
+
+        guess = int(input("make a guess : "))
+
+        check_answer(guess , answer , turns)
+
+        # track the number of turns & reduce by 1
+        
+        if turns == 0:
+            print("you've lost")
+            return
+        else:
+            print("guess again")
+
+        
+Game()
